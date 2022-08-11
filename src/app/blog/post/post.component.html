@@ -1,0 +1,242 @@
+<div class="container">
+  <div class="row">
+    <div class="col-3 mt-3">
+      <app-date [data]="posts[0]"></app-date>
+    </div>
+    <div class="col-9">
+      <div *ngFor="let post of posts">
+        <div
+          *ngIf="post.type == 'quote'"
+          class="my-3 post"
+          (mouseover)="showOpenIcon = true"
+          (mouseleave)="showOpenIcon = false"
+        >
+          <h3 id="quote-text">
+            {{ post["quote-text"] }}
+          </h3>
+          <h6 id="quote-source" [innerHTML]="post['quote-source']"></h6>
+
+          <a
+            *ngIf="showOpenIcon"
+            target="_blank"
+            [href]="post['url-with-slug']"
+          >
+            <img
+              id="open-post"
+              src="https://static.tumblr.com/vr9xgox/NoWnf8zop/permalink.gif"
+              alt=""
+            />
+          </a>
+          <div class="footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="getSite(post['url-with-slug'])"
+            >
+              Show Content
+            </button>
+            <p class="post-date">{{ post.date | date: "dd/MM/YYY" }}</p>
+          </div>
+        </div>
+        <div
+          (mouseover)="showOpenIcon = true"
+          (mouseleave)="showOpenIcon = false"
+          *ngIf="post.type == 'photo'"
+          class="my-3 post"
+        >
+          <img
+            [src]="post['photo-url-500']"
+            alt=""
+            (mouseover)="showOpenIcon = true"
+            (mouseleave)="showOpenIcon = false"
+          />
+          <div
+            class="text-center my-2 photo-caption"
+            [innerHTML]="post['photo-caption']"
+          ></div>
+          <a
+            *ngIf="showOpenIcon"
+            target="_blank"
+            [href]="post['url-with-slug']"
+          >
+            <img
+              id="open-post"
+              src="https://static.tumblr.com/vr9xgox/NoWnf8zop/permalink.gif"
+              alt=""
+            />
+          </a>
+          <div class="footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="getSite(post['url-with-slug'])"
+            >
+              Show Content
+            </button>
+            <p class="post-date">{{ post.date | date: "dd/MM/YYY" }}</p>
+          </div>
+        </div>
+        <div
+          *ngIf="post.type == 'link'"
+          class="my-3 post"
+          (mouseover)="showOpenIcon = true"
+          (mouseleave)="showOpenIcon = false"
+        >
+          <a id="link-url" [href]="post['link-url']">{{ post["link-text"] }}</a>
+          <div [innerHTML]="post['link-description']"></div>
+          <a
+            *ngIf="showOpenIcon"
+            target="_blank"
+            [href]="post['url-with-slug']"
+          >
+            <img
+              id="open-post"
+              src="https://static.tumblr.com/vr9xgox/NoWnf8zop/permalink.gif"
+              alt=""
+            />
+          </a>
+          <div class="footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="getSite(post['url-with-slug'])"
+            >
+              Show Content
+            </button>
+            <p class="post-date">{{ post.date | date: "dd/MM/YYY" }}</p>
+          </div>
+        </div>
+        <div
+          *ngIf="post.type == 'regular'"
+          class="my-3 post"
+          (mouseover)="showOpenIcon = true"
+          (mouseleave)="showOpenIcon = false"
+        >
+          <div id="regular-title" [innerHTML]="post['regular-title']"></div>
+          <div id="regular-body" [innerHTML]="post['regular-body']"></div>
+          <a
+            *ngIf="showOpenIcon"
+            target="_blank"
+            [href]="post['url-with-slug']"
+          >
+            <img
+              id="open-post"
+              src="https://static.tumblr.com/vr9xgox/NoWnf8zop/permalink.gif"
+              alt=""
+            />
+          </a>
+          <div class="footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="getSite(post['url-with-slug'])"
+            >
+              Show Content
+            </button>
+            <p class="post-date">{{ post.date | date: "dd/MM/YYY" }}</p>
+          </div>
+        </div>
+        <div
+          *ngIf="post.type == 'conversation'"
+          class="my-4 post"
+          (mouseover)="showOpenIcon = true"
+          (mouseleave)="showOpenIcon = false"
+        >
+          <div
+            id="regular-title"
+            [innerHTML]="post['conversation-title']"
+          ></div>
+          <!-- <div id="regular-body" [innerHTML]="post['conversation-text']"></div> -->
+          <a
+            *ngIf="showOpenIcon"
+            target="_blank"
+            [href]="post['url-with-slug']"
+          >
+            <img
+              id="open-post"
+              src="https://static.tumblr.com/vr9xgox/NoWnf8zop/permalink.gif"
+              alt=""
+            />
+          </a>
+          <table
+            (mouseover)="showOpenIcon = true"
+            (mouseleave)="showOpenIcon = false"
+            class="table table-striped conversation"
+          >
+            <tbody>
+              <tr>
+                <th></th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+              <tr>
+                <th></th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="getSite(post['url-with-slug'])"
+            >
+              Show Content
+            </button>
+            <p class="post-date">{{ post.date | date: "dd/MM/YYY" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div [innerHTML]="externalHTML">{{ externalHTML }}</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

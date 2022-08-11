@@ -1,0 +1,74 @@
+#quote-text {
+  font-size: 36px;
+}
+
+#quote-source {
+  text-decoration: none;
+  color: black;
+  & a {
+    color: black;
+  }
+}
+
+.photo-caption {
+  font-weight: 600;
+  font-size: 14px;
+
+  & p {
+    & a {
+      color: black;
+    }
+  }
+}
+
+#link-url {
+  color: #c00;
+  font-size: 20px;
+}
+
+#regular-title {
+  color: #6498cc;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#regular-body {
+  & blockquote {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 40px;
+    margin-inline-end: 40px;
+    font-style: italic;
+    border-left: solid 2px #444;
+    padding-left: 10px;
+  }
+}
+
+.post {
+  position: relative;
+  & #open-post {
+    position: absolute;
+    top: 0;
+    right: 0px;
+  }
+}
+
+.conversation {
+  & th {
+    // background-color: gray !important;
+    // border: none;
+  }
+  border-left: 5px solid gray;
+}
+
+.post-date {
+  text-align: right;
+  font-style: italic;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

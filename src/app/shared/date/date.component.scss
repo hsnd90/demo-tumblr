@@ -1,0 +1,26 @@
+.block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.day-name {
+  font-size: 34px;
+  font-weight: 500;
+  color: rgb(202, 202, 202);
+}
+
+.month {
+  background-color: #6498cc;
+  min-width: 45px;
+  min-height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-weight: 700;
+  padding: 3px;
+  line-height: 16px;
+}
